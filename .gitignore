@@ -1,7 +1,7 @@
-microprocssor.cahce/*
-microprocssor.hw/*
-microprocssor.ip_user_files/*
-microprocssor.runs/*
-microprocssor.sim/*
+microprocssor.cahce/
+microprocssor.hw/
+microprocssor.ip_user_files/
+microprocssor.runs/
+microprocssor.sim/
 
 microprocssor.xpr
