@@ -11,7 +11,8 @@ module alu_tb_top;
   //connect interface to the DUT
   alu dut (
       vif.sig_clock,
-      vif.sig_ina
+      vif.sig_ina,
+	  vif.sig_inb,
   );
 
 endmodule
