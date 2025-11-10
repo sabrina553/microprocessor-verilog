@@ -1,32 +1,32 @@
+`timescale 1ns / 1ps
 module alu_tb;
 
-    // Parameters
+  // Parameters
 
-    //Ports
-    reg  clk;
-    reg [31:0] inputA;
-    reg [31:0] inputB;
-    reg [5:0] opcode;
-    wire [31:0] outputAlu;
+  //Ports
+  reg clk;
+  reg [31:0] inputA;
+  reg [31:0] inputB;
+  reg [5:0] opcode;
+  wire [31:0] outputAlu;
 
-    alu alu_inst (
-            .clk(clk),
-            .inputA(inputA),
-            .inputB(inputB),
-            .opcode(opcode),
-            .outputAlu(outputAlu)
-        );
+  alu alu_inst (
+      .clk(clk),
+      .inputA(inputA),
+      .inputB(inputB),
+      .opcode(opcode),
+      .outputAlu(outputAlu)
+  );
 
-    always #5  clk = ! clk;
-    initial
-        begin
-            clk = 0;
-
-            
+  always #5 clk = !clk;
+  initial begin
+    clk = 0;
 
 
 
-        end
+
+
+  end
 
 
 endmodule
