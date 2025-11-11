@@ -1,5 +1,7 @@
 .settings/
 .vscode/
+.library_mapping.xml
+.project
 
 microprocessor.cache/
 microprocessor.hw/
