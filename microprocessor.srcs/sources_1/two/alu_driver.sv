@@ -20,14 +20,18 @@ class alu_driver extends uvm_driver#(alu_transaction);
 
 	// based on a typical testbench 
 	virtual task drive();
+
+		//instantiate vairables, parameters etc
 		alu_transaction sa_tx;
 		integer counter = 0, state = 0;
-		vif.sig_inA = 31'b0;
-		vif.sig_inB = 31'b0;
+		vif.sig_inA = 0'b0;
+		vif.sig_inB = 0'b0;
 		vif.sig_opcode = 6'b000100;  // Addition
 
 		forever begin
 			if (counter == 0) begin
+				// gets a transaction from the sequencer
+				// stores it in the variable 'sa_tx'
 				seq_item_port.get_next_item(sa_tx)
 				//`uvm_info("sa_driver", sa_tx.sprint(), UVM_LOW);
 			end
@@ -50,12 +54,12 @@ class alu_driver extends uvm_driver#(alu_transaction);
 					end
 
 					2: begin
-						vif.sig_ina = 1'b0;
-            			vif.sig_inb = 1'b0;
+						vif.sig_ina = 32'b0;
+            			vif.sig_inb = 32'b0;
 						
 						counter = counter + 1;
 
-						if (counter == 3) begin
+						if (counter == 6) begin
 							counter = 0;
 							state = 0;
 							seq_item_port.item_done();
