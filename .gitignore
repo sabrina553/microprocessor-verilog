@@ -1,3 +1,6 @@
+.settings/
+.vscode/
+
 microprocessor.cache/
 microprocessor.hw/
 microprocessor.ip_user_files/
