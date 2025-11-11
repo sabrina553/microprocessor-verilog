@@ -63,8 +63,3 @@ module alu_tb;
 
 
 endmodule
-
-
-//in1 <= X"0001ffff", X"0FAFffff" after 20 ns, X"F000ffff" after 40ns;
-//in2 <= X"0100ffff", X"7FFFffff" after 10ns, X"FFFFffff" after 30ns;
-//in3 <= "101000";
