@@ -65,6 +65,12 @@ The output appears one clock cycle after the inputs because the ALU is registere
 - **The ROM array initialiser is not accepted by every tool.** `assign rom_array = '{ ... }` is rejected by Icarus Verilog. Vivado's simulator is the intended target, but I would prefer an `initial` block or `$readmemh` for portability.
 - **The UVM scaffolding in `two/` does not compile.** `alu_if` declares single-bit signals instead of vectors, `alu_tb_top.sv` has a mismatched port connection (`sig_ina`) and stray declarations after `endmodule`, and no UVM components (driver, monitor, scoreboard) exist yet.
 
+## What I learnt
+
+- **Porting is a good way to find bugs in both designs.** Comparing the SystemVerilog ROM against the VHDL table is how the shifted register values showed up.
+- **"Valid SystemVerilog" depends on the tool.** The same ROM initialiser works in Vivado and fails in Icarus Verilog, so portable constructs (`$readmemh`, `initial` blocks) are worth the extra lines.
+- **UVM is a lot of structure up front** (interface, driver, monitor, scoreboard) before a single test runs. Building it piece by piece showed me why it pays off on large designs, and why it is overkill for a single ALU.
+
 ## Roadmap
 
 1. Fix the ROM contents and move initialisation to `$readmemh`.
